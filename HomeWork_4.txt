@@ -79,3 +79,8 @@ FROM test_a AS a
 LEFT JOIN test_b AS b
 ON a.id = b.id
 WHERE b.id IS NULL;
+
+-- то же самое но с NOT
+select * from test_a
+where not exists(select * from test_b
+where test_a.id = test_b.id);
